@@ -5,6 +5,8 @@ import GenreView from "../src/views/GenreView.jsx";
 import LoginView from "../src/views/LoginView.jsx";
 import MoviesView from "../src/views/MoviesView.jsx";
 import RegisterView from "../src/views/RegisterView.jsx";
+import CartView from "../src/views/CartView";
+import SettingView from "../src/views/SettingView";
 import './App.css';
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
         <Route path="/" element={<HomeView />} />
         <Route path="/register" element={<RegisterView />} />
         <Route path="/login" element={<LoginView />} />
+        <Route path="/cart" element={<CartView />} />
+        <Route path="/setting" element={<SettingView />} />
         <Route path="/movies" element={<MoviesView />}>
           <Route path="/movies/genre/:genre_id" element={<GenreView />} />
           <Route path="/movies/details/:id" element={<DetailView />} />
