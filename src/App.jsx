@@ -5,8 +5,8 @@ import GenreView from "../src/views/GenreView.jsx";
 import LoginView from "../src/views/LoginView.jsx";
 import MoviesView from "../src/views/MoviesView.jsx";
 import RegisterView from "../src/views/RegisterView.jsx";
-import CartView from "../src/views/CartView";
-import SettingView from "../src/views/SettingView";
+import CartView from "../src/views/CartView.jsx";
+import SettingView from "../src/views/SettingView.jsx";
 import './App.css';
 
 function App() {
