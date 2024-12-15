@@ -1,12 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useStoreContext } from "../context"; // Importing the context for cart management
 import "./DetailView.css";
 
 function DetailView() {
   const { id } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
   const [trailers, setTrailers] = useState([]);
+
+  // Access cart and setCart from context
+  const { cart, setCart } = useStoreContext();
 
   useEffect(() => {
     async function fetchMovieDetails() {
@@ -31,6 +35,15 @@ function DetailView() {
     fetchMovieDetails();
   }, [id]);
 
+  // Function to handle Buy button click
+  const handleBuyClick = (movie) => {
+    setCart((prevCart) =>
+      prevCart.has(movie.id)
+        ? prevCart.delete(movie.id)
+        : prevCart.set(movie.id, { title: movie.title, url: movie.poster_path })
+    );
+  };
+
   if (!movieDetails) {
     return <p>Loading movie details...</p>;
   }
@@ -49,6 +62,12 @@ function DetailView() {
           <p><strong>Release Date:</strong> {movieDetails.release_date}</p>
           <p><strong>Runtime:</strong> {movieDetails.runtime} minutes</p>
           <p><strong>Vote Average:</strong> {movieDetails.vote_average}</p>
+          <button
+            onClick={() => handleBuyClick(movieDetails)}
+            className="buy-button"
+          >
+            {cart.has(movieDetails.id) ? "Added" : "Buy"}
+          </button>
         </div>
       </div>
       <div className="movie-trailers">

@@ -1,60 +1,53 @@
 .cart-view {
     padding: 20px;
-}
-
-.cart-view h1 {
+  }
+  
+  .cart-view h1 {
     font-size: 2rem;
     margin-bottom: 20px;
     color: #008cba;
-}
-
-/* Scrollable row */
-.cart-items {
+  }
+  
+  .cart-items {
     display: flex;
     flex-direction: column;
     overflow-x: auto;
     gap: 15px;
     padding-bottom: 15px;
     scrollbar-width: none;
-    /* Hide scrollbar in Firefox */
-}
-
-.cart-items::-webkit-scrollbar {
+  }
+  
+  .cart-items::-webkit-scrollbar {
     display: none;
-    /* Hide scrollbar in Chrome, Safari, and Opera */
-}
-
-/* Card styles */
-.cart-item {
+  }
+  
+  .cart-item {
     min-width: 200px;
     background-color: #222222;
     border-radius: 10px;
     overflow: hidden;
-    flex-shrink: 0;
     position: relative;
     transition: transform 0.3s ease;
-}
-
-.cart-item:hover {
+  }
+  
+  .cart-item:hover {
     transform: scale(1.05);
-}
-
-/* Image */
-.cart-item img {
+  }
+  
+  .cart-item img {
     width: 25%;
     height: auto;
     display: block;
-}
-
-/* Title */
-.cart-item h1 {
+  }
+  
+  .cart-item h1 {
     font-size: 1rem;
     padding: 10px;
     margin: 0;
-}
-
-/* Button */
-.cart-item button {
+    color: white;
+  }
+  
+  .cart-item button {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -66,8 +59,8 @@
     font-size: 0.9rem;
     cursor: pointer;
     transition: background-color 0.2s;
-}
-
-.cart-item button:hover {
+  }
+  
+  .cart-item button:hover {
     background-color: #00a8e0;
-}
+  }  

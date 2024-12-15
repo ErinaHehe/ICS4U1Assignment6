@@ -45,3 +45,23 @@
   height: 315px;
   border-radius: 10px;
 }
+
+.buy-button {
+  background-color: #008cba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buy-button:hover {
+  background-color: #00a8e0;
+}
+
+.buy-button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
