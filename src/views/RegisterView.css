@@ -1,6 +1,6 @@
 body {
     font-family: "Rowdies", sans-serif;
-    background-color: #050b14; /* Dark background */
+    background-color: #050b14;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -8,7 +8,6 @@ body {
     height: 100vh;
 }
 
-/* Container for Register Form */
 .register-container {
     width: 100%;
     max-width: 400px;
@@ -45,7 +44,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* Register Button */
 .register-button {
     width: 100%;
     padding: 10px;

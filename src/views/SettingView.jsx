@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
-import { UserContext } from "../context/UserContext";
-import "./SettingsView.css";
+import "./SettingView.css";
 
 const genres = [
   "Action", "Comedy", "Drama", "Horror", "Romance", "Sci-Fi",
