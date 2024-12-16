@@ -1,14 +1,3 @@
-body {
-    font-family: "Rowdies", sans-serif;
-    background-color: #050b14; 
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-/* Container for Login Form */
 .login-container {
     width: 100%;
     max-width: 400px;
@@ -44,7 +33,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* Login Button */
 .login-button {
     width: 100%;
     padding: 10px;
