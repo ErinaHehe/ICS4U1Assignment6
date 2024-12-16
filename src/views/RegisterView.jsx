@@ -1,8 +1,12 @@
 import "./RegisterView.css";
 import { useState } from "react";
 import { Set } from 'immutable';
+import { useStoreContext } from "../context";
+import { useNavigate } from "react-router";
 
 function RegisterView() {
+  const navigate = useNavigate();
+  const { setUser } = useStoreContext();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -50,7 +54,8 @@ function RegisterView() {
       return;
     }
 
-    alert("Registration successful!");
+    setUser(formData);
+    navigate("/movies");
   };
 
   return (

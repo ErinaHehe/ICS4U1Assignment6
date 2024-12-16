@@ -34,7 +34,7 @@ function SettingsView() {
     const { firstName, lastName, preferredGenres } = formData;
 
     if (!firstName || !lastName || preferredGenres.length === 0) {
-      alert("Please fill out all fields and select at least one genre.");
+      alert("Please fill out all fields and select at least ten genre.");
       return;
     }
 
@@ -48,10 +48,10 @@ function SettingsView() {
         <h2>Settings</h2>
         <form onSubmit={handleSubmit}>
           <label htmlFor="first-name">First name</label>
-          <input type="text" id="first-name" name="firstName" value={formData.firstName} onChange={(e) => handleInputChange(e)} required />
+          <input type="text" id="first-name" name="firstName" value={formData.firstName} onChange={(e) => handleInputChange(e)} />
 
           <label htmlFor="last-name">Last name</label>
-          <input type="text" id="last-name" name="lastName" value={formData.lastName} onChange={(e) => handleInputChange(e)} required />
+          <input type="text" id="last-name" name="lastName" value={formData.lastName} onChange={(e) => handleInputChange(e)} />
 
           <label htmlFor="email">Email</label>
           <input type="email" id="email" name="email" value={formData.email} onChange={(e) => handleInputChange(e)} disabled />
