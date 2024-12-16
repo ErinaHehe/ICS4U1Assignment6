@@ -8,6 +8,14 @@ function MoviesView() {
     navigate("/");
   }
 
+  function cart() {
+    navigate("/cart")
+  }
+
+  function setting() {
+    navigate("/setting")
+  }
+
   const genres = [
     { genre: "Action", id: 28 },
     { genre: "Adventure", id: 12 },
@@ -28,10 +36,10 @@ function MoviesView() {
   return (
     <div className="app-container">
       <div className="header">
-        <h1>Hello, User!</h1>
-        <button onClick={logout} className="logout-button">
-          Logout
-        </button>
+        <h1>Hello</h1>
+        <button onClick={() => cart()} className="logout-button">Cart</button>
+        <button onClick={() => setting()} className="logout-button">Setting</button>
+        <button onClick={() => logout()} className="logout-button">Logout</button>
       </div>
       <div className="filter">
         <h3>Genres</h3>

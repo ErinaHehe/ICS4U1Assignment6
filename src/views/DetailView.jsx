@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useStoreContext } from "../context"; // Importing the context for cart management
+import { useStoreContext } from "../context"; 
 import "./DetailView.css";
 
 function DetailView() {
@@ -9,7 +9,6 @@ function DetailView() {
   const [movieDetails, setMovieDetails] = useState(null);
   const [trailers, setTrailers] = useState([]);
 
-  // Access cart and setCart from context
   const { cart, setCart } = useStoreContext();
 
   useEffect(() => {
@@ -35,7 +34,6 @@ function DetailView() {
     fetchMovieDetails();
   }, [id]);
 
-  // Function to handle Buy button click
   const handleBuyClick = (movie) => {
     setCart((prevCart) =>
       prevCart.has(movie.id)

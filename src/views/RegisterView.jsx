@@ -1,11 +1,22 @@
 import "./RegisterView.css";
-
-const genres = [
-  "Action", "Comedy", "Drama", "Horror", "Romance", "Sci-Fi",
-  "Fantasy", "Thriller", "Animation", "Documentary", "Mystery", "Adventure"
-];
+import { useState } from "react";
+import { Set } from 'immutable';
 
 function RegisterView() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    rePassword: "",
+    selectedGenres: Set(),
+  });
+
+  const genres = [
+    "Action", "Comedy", "Drama", "Horror", "Romance", "Sci-Fi",
+    "Fantasy", "Thriller", "Animation", "Documentary", "Mystery", "Adventure"
+  ];
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -16,9 +27,7 @@ function RegisterView() {
     const { value, checked } = e.target;
     setFormData((prev) => ({
       ...prev,
-      selectedGenres: checked
-        ? [...prev.selectedGenres, value]
-        : prev.selectedGenres.filter((genre) => genre !== value)
+      selectedGenres: checked ? prev.selectedGenres.add(value) : prev.selectedGenres.delete(value),
     }));
   };
 
@@ -36,12 +45,10 @@ function RegisterView() {
       return;
     }
 
-    if (selectedGenres.length < 10) {
+    if (selectedGenres.size < 10) {
       alert("Please select at least 10 genres.");
       return;
     }
-
-    setUser({ firstName, lastName, email, selectedGenres });
 
     alert("Registration successful!");
   };
@@ -50,21 +57,21 @@ function RegisterView() {
     <div className="register-container">
       <div className="form-container">
         <h2>Create an Account</h2>
-        <form action="#" method="POST">
+        <form onSubmit={(e) => handleSubmit(e)}>
           <label htmlFor="first-name">First name</label>
-          <input type="text" id="first-name" name="first-name" required />
+          <input type="text" id="first-name" name="firstName" value={formData.firstName} onChange={(e) => handleInputChange(e)} required />
 
           <label htmlFor="last-name">Last name</label>
-          <input type="text" id="last-name" name="last-name" required />
+          <input type="text" id="last-name" name="lastName" value={formData.lastName} onChange={(e) => handleInputChange(e)} required />
 
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" name="email" value={formData.email} onChange={(e) => handleInputChange(e)} required />
 
           <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" required />
+          <input type="password" id="password" name="password" value={formData.password} onChange={(e) => handleInputChange(e)} required />
 
-          <label htmlFor="re-enter-password">Re-enter Password</label>
-          <input type="password" id="re-enter-password" name="re-enter-password" required />
+          <label htmlFor="rePassword">Re-enter Password</label>
+          <input type="password" id="rePassword" name="rePassword" value={formData.rePassword} onChange={(e) => handleInputChange(e)} required />
 
           <fieldset>
             <legend>Select Your Favorite Genres (at least 10)</legend>
@@ -74,8 +81,7 @@ function RegisterView() {
                   <input
                     type="checkbox"
                     value={genre}
-                    onChange={handleCheckboxChange}
-                    checked={formData.selectedGenres.includes(genre)}
+                    onChange={(e) => handleCheckboxChange(e)}
                   />
                   {genre}
                 </label>
@@ -83,7 +89,7 @@ function RegisterView() {
             ))}
           </fieldset>
 
-          <button type="submit" className="register-button">Register</button>
+          <input type="submit" className="register-button" value="Register" />
         </form>
         <p className="login-link">Already have an account? <a href="#">Login</a></p>
       </div>
