@@ -1,18 +1,18 @@
-import { useState, useContext } from "react";
 import "./SettingView.css";
-
-const genres = [
-  "Action", "Comedy", "Drama", "Horror", "Romance", "Sci-Fi",
-  "Fantasy", "Thriller", "Animation", "Documentary", "Mystery", "Adventure"
-];
+import { useState } from "react";
+import { Set } from 'immutable';
 
 function SettingsView() {
-  const { user, setUser } = useContext(UserContext);
   const [formData, setFormData] = useState({
-    firstName: user.firstName,
-    lastName: user.lastName,
-    preferredGenres: user.preferredGenres || []
+    firstName: "",
+    lastName: "",
+    selectedGenres: Set(),
   });
+
+  const genres = [
+    "Action", "Comedy", "Drama", "Horror", "Romance", "Sci-Fi",
+    "Fantasy", "Thriller", "Animation", "Documentary", "Mystery", "Adventure"
+  ];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -47,45 +47,24 @@ function SettingsView() {
       <div className="form-container">
         <h2>Settings</h2>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="first-name">First Name</label>
-          <input
-            type="text"
-            id="first-name"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleInputChange}
-            required
-          />
+          <label htmlFor="first-name">First name</label>
+          <input type="text" id="first-name" name="firstName" value={formData.firstName} onChange={(e) => handleInputChange(e)} required />
 
-          <label htmlFor="last-name">Last Name</label>
-          <input
-            type="text"
-            id="last-name"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleInputChange}
-            required
-          />
+          <label htmlFor="last-name">Last name</label>
+          <input type="text" id="last-name" name="lastName" value={formData.lastName} onChange={(e) => handleInputChange(e)} required />
 
           <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={user.email}
-            disabled
-          />
+          <input type="email" id="email" name="email" value={formData.email} onChange={(e) => handleInputChange(e)} disabled />
 
           <fieldset>
-            <legend>Preferred Genres</legend>
+            <legend>Update Your Favorite Genres (at least 10)</legend>
             {genres.map((genre) => (
               <div key={genre}>
                 <label>
                   <input
                     type="checkbox"
                     value={genre}
-                    onChange={handleCheckboxChange}
-                    checked={formData.preferredGenres.includes(genre)}
+                    onChange={(e) => handleCheckboxChange(e)}
                   />
                   {genre}
                 </label>

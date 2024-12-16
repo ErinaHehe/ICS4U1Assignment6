@@ -13,8 +13,8 @@ function RegisterView() {
   });
 
   const genres = [
-    "Action", "Comedy", "Drama", "Horror", "Romance", "Sci-Fi",
-    "Fantasy", "Thriller", "Animation", "Documentary", "Mystery", "Adventure"
+    "Action", "Adventure", "Animation", "Comedy", "Crime", "Family", "Fantasy",
+    "History", "Horror", "Music", "Mystery", "Sci-Fi", "Thriller", "War", "Western"
   ];
 
 

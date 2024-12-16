@@ -1,4 +1,5 @@
 import { Outlet, useNavigate } from "react-router-dom";
+import { useStoreContext } from "../context";
 import "./MoviesView.css";
 
 function MoviesView() {
@@ -27,7 +28,13 @@ function MoviesView() {
     { genre: "History", id: 36 },
     { genre: "Horror", id: 27 },
     { genre: "Music", id: 10402 },
+    { genre: "Mystery", id: 9648 },
+    { genre: "Sci-Fi", id: 878 },
+    { genre: "Thriller", id: 53 },
+    { genre: "War", id: 10752 },
+    { genre: "Western", id: 37 },
   ];
+
 
   function handleGenreClick(id) {
     navigate(`/movies/genre/${id}`);
